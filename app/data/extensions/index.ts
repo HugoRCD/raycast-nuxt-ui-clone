@@ -1,11 +1,19 @@
+import { githubExtension } from './github'
+import { vscodeExtension } from './vscode'
+import { spotifyExtension } from './spotify'
+import { colorPickerExtension } from './color-picker'
+import { killProcessExtension } from './kill-process'
+
 export { githubExtension } from './github'
 export { vscodeExtension } from './vscode'
 export { spotifyExtension } from './spotify'
 export { colorPickerExtension } from './color-picker'
+export { killProcessExtension } from './kill-process'
 
 export const allExtensions = [
-  async () => (await import('./github')).githubExtension,
-  async () => (await import('./vscode')).vscodeExtension,
-  async () => (await import('./spotify')).spotifyExtension,
-  async () => (await import('./color-picker')).colorPickerExtension
+  githubExtension,
+  vscodeExtension,
+  spotifyExtension,
+  colorPickerExtension,
+  killProcessExtension
 ] 

@@ -49,7 +49,13 @@ defineShortcuts({
 <template>
   <UModal v-model:open="open" :overlay="false" :dismissible="false" :ui="modalUi">
     <template #content>
-      <UCommandPalette :groups class="h-100" :ui="commandPaletteUi" @highlight="handleHighlight">
+      <UCommandPalette 
+        :groups 
+        class="h-100" 
+        :ui="commandPaletteUi" 
+        :fuse="{ resultLimit: 100, matchAllWhenSearchEmpty: true }"
+        @highlight="handleHighlight"
+      >
         <template #item="{ item }">
           <div class="flex items-center justify-between w-full p-1" @contextmenu="handleRightClick">
             <div class="flex items-center gap-2.5">

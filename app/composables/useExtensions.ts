@@ -1,15 +1,9 @@
 import type { Command, CommandGroup, Extension, ActionItem } from '~/types/extensions'
-import { githubExtension, vscodeExtension, spotifyExtension } from '~/data/extensions'
-import { colorPickerExtension } from '~/data/extensions/color-picker'
+import { allExtensions } from '~/data/extensions'
 import { settingsMenu } from '~/data/settings'
 
 export const useExtensions = () => {
-  const extensions = ref<Extension[]>([
-    githubExtension,
-    vscodeExtension,
-    spotifyExtension,
-    colorPickerExtension
-  ])
+  const extensions = ref<Extension[]>(allExtensions)
 
   const transformExtensionCommands = (extension: Extension): Command[] => {
     return extension.commands.map(command => ({
