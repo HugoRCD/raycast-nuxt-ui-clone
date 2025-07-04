@@ -11,13 +11,24 @@ export default defineNuxtConfig({
   nitro: {
     imports: {
       dirs: ['./server/services']
+    },
+    prerender: {
+      routes: ['/']
     }
   },
 
   css: ['~/assets/css/index.css'],
 
-  image: {
-    provider: 'ipx'
+  $development: {
+    image: {
+      provider: 'ipx'
+    }
+  },
+
+  $production: {
+    image: {
+      provider: 'vercel'
+    }
   },
 
   modules: [
