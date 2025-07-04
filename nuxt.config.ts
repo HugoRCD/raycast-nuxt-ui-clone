@@ -14,6 +14,15 @@ export default defineNuxtConfig({
     },
     prerender: {
       routes: ['/']
+    },
+    compressPublicAssets: true,
+    routeRules: {
+      '/': { 
+        prerender: true,
+        cache: {
+          maxAge: 60 * 60 * 24 * 30 // 30 days
+        }
+      }
     }
   },
 
