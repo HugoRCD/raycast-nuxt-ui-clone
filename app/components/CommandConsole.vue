@@ -1,171 +1,21 @@
 <script setup lang="ts">
 const open = ref(true)
 
-const githubMeta = {
-  suffix: 'Github',
-  icon: '/extensions/github.webp',
-  type: 'Command'
+const { getCommandGroups, settingsMenu, getActionsForCommand } = useExtensions()
+
+const groups = getCommandGroups()
+
+const highlightedItem = ref()
+
+const actionsDropdownOpen = ref(false)
+
+const actionsDropdownItems = computed(() => {
+  return getActionsForCommand(highlightedItem.value?.value)
+})
+
+const handleHighlight = (payload: any) => {
+  highlightedItem.value = payload
 }
-
-const vscodeMeta = {
-  suffix: 'VSCode',
-  icon: '/extensions/vscode.webp',
-  type: 'Command'
-}
-
-const spotifyMeta = {
-  suffix: 'Spotify',
-  icon: '/extensions/spotify.webp',
-  type: 'Command'
-}
-
-const githubCommands = [
-  {
-    label: 'Create issue',
-    ...githubMeta
-  },
-  {
-    label: 'Create Pull Request',
-    ...githubMeta
-  },
-  {
-    label: 'Create Branch',
-    ...githubMeta
-  },
-  {
-    label: 'Notifications',
-    ...githubMeta
-  },
-  {
-    label: 'Open Repository',
-    ...githubMeta
-  }
-]
-
-const vscodeCommands = [
-  {
-    label: 'Open File',
-    ...vscodeMeta
-  },
-  {
-    label: 'Open Settings',
-    ...vscodeMeta
-  },
-  {
-    label: 'Open Command Palette',
-    ...vscodeMeta
-  },
-  {
-    label: 'Open Terminal',
-    ...vscodeMeta
-  }
-]
-
-const spotifyCommands = [
-  {
-    label: 'Play/Pause',
-    ...spotifyMeta
-  },
-  {
-    label: 'Next',
-    ...spotifyMeta
-  },
-  {
-    label: 'Previous',
-    ...spotifyMeta
-  },
-  {
-    label: 'Shuffle',
-    ...spotifyMeta
-  },
-  {
-    label: 'Repeat',
-    ...spotifyMeta
-  },
-  {
-    label: 'Volume Up',
-    ...spotifyMeta
-  },
-  {
-    label: 'Volume Down',
-    ...spotifyMeta
-  }
-]
-
-const groups = [
-  {
-    id: 'favorites',
-    label: 'Favorites',
-    items: [
-      {
-        label: 'Open Project',
-        ...vscodeMeta
-      },
-      {
-        label: 'Notifications',
-        ...githubMeta
-      }
-    ]
-  },
-  {
-    id: 'suggestions',
-    label: 'Suggestions',
-    items: [
-      {
-        label: 'Open Project',
-        ...vscodeMeta
-      },
-    ],
-  },
-  {
-    id: 'commands',
-    label: 'Commands',
-    items: [
-      ...githubCommands,
-      ...vscodeCommands,
-      ...spotifyCommands
-    ]
-  }
-]
-
-const settingsMenu = [
-  {
-    id: 'raycast',
-    label: 'Raycast 1.100.3',
-    items: [
-      {
-        label: 'Send Feedback',
-        icon: 'i-lucide:message-circle'
-      },
-      {
-        label: 'Manual',
-        icon: 'i-lucide:book'
-      },
-      {
-        label: 'Changelog',
-        icon: 'i-lucide:history'
-      },
-      {
-        label: 'Check for Updates',
-        icon: 'i-lucide:download'
-      }
-    ]
-  },
-  {
-    id: 'community',
-    label: 'Community',
-    items: [
-      {
-        label: 'Discord',
-        icon: 'i-simple-icons-discord'
-      },
-      {
-        label: 'Twitter',
-        icon: 'i-simple-icons-twitter'
-      }
-    ]
-  }
-]
 
 const settingsSearch = ref([])
 
@@ -178,12 +28,21 @@ const commandPaletteUi = {
   label: 'text-muted font-medium',
   item: 'data-highlighted:not-data-disabled:before:bg-muted'
 }
+
+defineShortcuts({
+  meta_k: {
+    usingInput: true,
+    handler: () => {
+      actionsDropdownOpen.value = !actionsDropdownOpen.value
+    }
+  }
+})
 </script>
 
 <template>
   <UModal v-model:open="open" :overlay="false" :dismissible="false" :ui="modalUi">
     <template #content>
-      <UCommandPalette :groups class="h-100" :ui="commandPaletteUi">
+      <UCommandPalette :groups class="h-100" :ui="commandPaletteUi" @highlight="handleHighlight">
         <template #item="{ item }">
           <div class="flex items-center justify-between w-full p-1">
             <div class="flex items-center gap-2.5">
@@ -215,13 +74,25 @@ const commandPaletteUi = {
         <template #footer>
           <div class="flex items-center justify-between gap-2">
             <UPopover :content="{ side: 'top', align: 'start' }">
-              <UButton icon="i-simple-icons-raycast" variant="ghost" color="neutral" size="sm" />
+              <UButton
+                icon="i-simple-icons-raycast"
+                variant="ghost"
+                color="neutral"
+                size="sm"
+                class="text-dimmed"
+              />
               <template #content>
                 <UCommandPalette
                   v-model="settingsSearch"
                   placeholder="Search settings..."
                   :groups="settingsMenu"
-                  :ui="{ input: '[&>input]:h-8 [&>input]:text-sm', label: 'text-muted font-medium', itemLeadingIcon: 'text-highlighted' }"
+                  :ui="{ 
+                    input: '[&>input]:h-8 [&>input]:text-sm',
+                    label: 'text-muted font-medium',
+                    itemLeadingIcon: 'text-highlighted size-4',
+                    itemLabel: 'txet-sm',
+                    item: 'data-highlighted:not-data-disabled:before:bg-muted'
+                  }"
                 />
               </template>
             </UPopover>
@@ -232,12 +103,19 @@ const commandPaletteUi = {
                 </template>
               </UButton>
               <USeparator orientation="vertical" class="h-4" />
-              <UButton color="neutral" variant="ghost" label="Actions" class="text-dimmed" size="xs">
-                <template #trailing>
-                  <UKbd value="meta" />
-                  <UKbd value="k" />
-                </template>
-              </UButton>
+              <UDropdownMenu
+                v-model:open="actionsDropdownOpen" 
+                :items="actionsDropdownItems"
+                :disabled="!highlightedItem"
+                :content="{ side: 'top', align: 'end' }"
+              >
+                <UButton color="neutral" variant="ghost" label="Actions" class="text-dimmed" size="xs">
+                  <template #trailing>
+                    <UKbd value="meta" />
+                    <UKbd value="k" />
+                  </template>
+                </UButton>
+              </UDropdownMenu>
             </div>
           </div>
         </template>
