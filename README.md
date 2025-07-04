@@ -1,3 +1,5 @@
+![Preview](public/preview.png)
+
 # Raycast Nuxt UI Clone
 
 [![license](https://img.shields.io/github/license/HugoRCD/raycast-nuxt-ui-clone?color=black)](https://github.com/HugoRCD/raycast-nuxt-ui-clone/blob/main/LICENSE)
