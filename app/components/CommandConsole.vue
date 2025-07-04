@@ -57,20 +57,7 @@ defineShortcuts({
         @highlight="handleHighlight"
       >
         <template #item="{ item }">
-          <div class="flex items-center justify-between w-full p-1" @contextmenu="handleRightClick">
-            <div class="flex items-center gap-2.5">
-              <div class="flex items-center gap-2.5">
-                <NuxtImg :src="item.icon!" class="size-5" />
-                <span>{{ item.label }}</span>
-              </div>
-              <span class="text-muted font-medium">
-                {{ item.suffix }}
-              </span>
-            </div>
-            <span class="text-muted text-xs font-medium">
-              {{ item.type }}
-            </span>
-          </div>
+          <CommandItem :item @right-click="handleRightClick" />
         </template>
 
         <template #close>
@@ -85,52 +72,12 @@ defineShortcuts({
         </template>
 
         <template #footer>
-          <div class="flex items-center justify-between gap-2">
-            <UPopover :content="{ side: 'top', align: 'start' }">
-              <UButton
-                icon="i-simple-icons-raycast"
-                variant="ghost"
-                color="neutral"
-                size="sm"
-                class="text-dimmed"
-              />
-              <template #content>
-                <UCommandPalette
-                  v-model="settingsSearch"
-                  placeholder="Search settings..."
-                  :groups="settingsMenu"
-                  :ui="{ 
-                    input: '[&>input]:h-8 [&>input]:text-sm',
-                    label: 'text-muted font-medium',
-                    itemLeadingIcon: 'text-highlighted size-4',
-                    itemLabel: 'txet-sm',
-                    item: 'data-highlighted:not-data-disabled:before:bg-muted'
-                  }"
-                />
-              </template>
-            </UPopover>
-            <div class="flex items-center gap-1">
-              <UButton color="neutral" variant="ghost" label="Open Command" class="text-dimmed" size="xs">
-                <template #trailing>
-                  <UKbd value="enter" />
-                </template>
-              </UButton>
-              <USeparator orientation="vertical" class="h-4" />
-              <UDropdownMenu
-                v-model:open="actionsDropdownOpen" 
-                :items="actionsDropdownItems"
-                :disabled="!highlightedItem"
-                :content="{ side: 'top', align: 'end' }"
-              >
-                <UButton color="neutral" variant="ghost" label="Actions" class="text-dimmed" size="xs">
-                  <template #trailing>
-                    <UKbd value="meta" />
-                    <UKbd value="k" />
-                  </template>
-                </UButton>
-              </UDropdownMenu>
-            </div>
-          </div>
+          <CommandFooter
+            v-model:actions-open="actionsDropdownOpen"
+            :settings-menu
+            :actions-items="actionsDropdownItems"
+            :actions-disabled="!highlightedItem"
+          />
         </template>
       </UCommandPalette>
     </template>
