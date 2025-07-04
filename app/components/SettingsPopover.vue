@@ -10,12 +10,12 @@ defineProps<Props>()
   <UPopover 
     :content="{ side: 'top', align: 'start' }"
     :ui="{
-      content: 'shadow-3xl bg-default/70 backdrop-blur-xl ring ring-accented rounded-lg'
+      content: 'bg-default/70 backdrop-blur-xl ring ring-accented rounded-lg shadow-raycast-popover'
     }"
   >
     <UButton
       icon="i-simple-icons-raycast"
-      variant="soft"
+      variant="ghost"
       color="neutral"
       size="sm"
       class="text-dimmed"
@@ -25,7 +25,7 @@ defineProps<Props>()
         placeholder="Search settings..."
         :groups="settingsMenu"
         :ui="{
-          root: 'shadow-3xl',
+          root: '',
           input: '[&>input]:h-8 [&>input]:text-sm',
           label: 'text-muted font-medium',
           itemLeadingIcon: 'text-highlighted size-4',

@@ -7,6 +7,13 @@ interface Props {
 defineProps<Props>()
 
 const open = defineModel<boolean>('open', { required: true })
+
+const handleActionSelect = (item: any) => {
+  if (item && item.onSelect) {
+    item.onSelect()
+    open.value = false
+  }
+}
 </script>
 
 <template>
@@ -17,8 +24,9 @@ const open = defineModel<boolean>('open', { required: true })
     :content="{ side: 'top', align: 'end' }"
     size="sm"
     :ui="{
-      content: 'shadow-3xl bg-default/70 backdrop-blur-xl ring ring-accented rounded-lg'
+      content: 'bg-default/70 backdrop-blur-xl ring ring-accented rounded-lg shadow-raycast-dropdown'
     }"
+    @select="handleActionSelect"
   >
     <UButton color="neutral" variant="ghost" label="Actions" class="text-dimmed" size="xs">
       <template #trailing>

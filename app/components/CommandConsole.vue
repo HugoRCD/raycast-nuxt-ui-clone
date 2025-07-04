@@ -45,11 +45,11 @@ const handleRightClick = (event: MouseEvent) => {
 }
 
 const modalUi = {
-  content: 'bg-default/70 backdrop-blur-xl ring ring-accented max-w-2xl h-100 flex flex-col'
+  content: 'bg-default/70 backdrop-blur-xl border border-accented/70 max-w-2xl h-100 flex flex-col shadow-raycast'
 }
 
 const commandPaletteUi = {
-  root: 'shadow-3xl flex flex-col h-full',
+  root: 'flex flex-col h-full',
   label: 'text-muted font-medium',
   item: 'data-highlighted:not-data-disabled:before:bg-muted',
   content: 'flex-1 overflow-y-auto'
