@@ -1,16 +1,16 @@
 {
-  "name": "default-repository",
+  "name": "raycast-nuxt-ui-clone",
   "private": true,
   "type": "module",
-  "description": "default repository for HugoRCD",
+  "description": "A Raycast command palette clone built with Nuxt UI to demonstrate component customization capabilities",
   "author": "HugoRCD",
   "funding": "https://github.com/sponsors/HugoRCD",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HugoRCD/default-repository.git"
+    "url": "git+https://github.com/HugoRCD/raycast-nuxt-ui-clone.git"
   },
   "bugs": {
-    "url": "https://github.com/HugoRCD/default-repository/issues"
+    "url": "https://github.com/HugoRCD/raycast-nuxt-ui-clone/issues"
   },
   "scripts": {
     "build": "nuxt build",
