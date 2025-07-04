@@ -24,16 +24,15 @@ const handleRightClick = (event: MouseEvent) => {
   }
 }
 
-const settingsSearch = ref([])
-
 const modalUi = {
-  content: 'bg-default/70 backdrop-blur-xl ring ring-accented max-w-2xl'
+  content: 'bg-default/70 backdrop-blur-xl ring ring-accented max-w-2xl h-100 flex flex-col'
 }
 
 const commandPaletteUi = {
-  root: 'shadow-3xl',
+  root: 'shadow-3xl flex flex-col h-full',
   label: 'text-muted font-medium',
-  item: 'data-highlighted:not-data-disabled:before:bg-muted'
+  item: 'data-highlighted:not-data-disabled:before:bg-muted',
+  content: 'flex-1 overflow-y-auto'
 }
 
 defineShortcuts({
@@ -51,9 +50,8 @@ defineShortcuts({
     <template #content>
       <UCommandPalette 
         :groups 
-        class="h-100" 
         :ui="commandPaletteUi" 
-        :fuse="{ resultLimit: 100, matchAllWhenSearchEmpty: true }"
+        :fuse="{ resultLimit: 100, fuseOptions: { includeMatches: true } }"
         @highlight="handleHighlight"
       >
         <template #item="{ item }">
