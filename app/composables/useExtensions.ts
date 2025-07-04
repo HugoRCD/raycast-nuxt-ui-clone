@@ -1,8 +1,6 @@
 import type { Command, CommandGroup, Extension, ActionItem } from '~/types/extensions'
 import { githubExtension, vscodeExtension, spotifyExtension } from '~/data/extensions'
 import { colorPickerExtension } from '~/data/extensions/color-picker'
-import { systemExtension } from '~/data/extensions/system'
-import { raycastNotesExtension } from '~/data/extensions/raycast-notes'
 import { settingsMenu } from '~/data/settings'
 
 export const useExtensions = () => {
@@ -10,9 +8,7 @@ export const useExtensions = () => {
     githubExtension,
     vscodeExtension,
     spotifyExtension,
-    colorPickerExtension,
-    systemExtension,
-    raycastNotesExtension
+    colorPickerExtension
   ])
 
   const transformExtensionCommands = (extension: Extension): Command[] => {

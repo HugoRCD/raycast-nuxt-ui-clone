@@ -17,6 +17,13 @@ const handleHighlight = (payload: any) => {
   highlightedItem.value = payload
 }
 
+const handleRightClick = (event: MouseEvent) => {
+  event.preventDefault()
+  if (highlightedItem.value) {
+    actionsDropdownOpen.value = true
+  }
+}
+
 const settingsSearch = ref([])
 
 const modalUi = {
@@ -44,7 +51,7 @@ defineShortcuts({
     <template #content>
       <UCommandPalette :groups class="h-100" :ui="commandPaletteUi" @highlight="handleHighlight">
         <template #item="{ item }">
-          <div class="flex items-center justify-between w-full p-1">
+          <div class="flex items-center justify-between w-full p-1" @contextmenu="handleRightClick">
             <div class="flex items-center gap-2.5">
               <div class="flex items-center gap-2.5">
                 <NuxtImg :src="item.icon!" class="size-5" />
