@@ -99,12 +99,12 @@ export const useExtensions = () => {
         {
           label: 'Open Command',
           icon: 'i-lucide-corner-up-right',
-          onSelect: () => console.log('Open command', command.label)
+          onSelect: () => console.log('Open command:', command.label)
         },
         {
           label: 'Reset Ranking',
           icon: 'i-lucide-rotate-ccw',
-          onSelect: () => console.log('Reset ranking', command.label)
+          onSelect: () => console.log('Reset ranking:', command.label)
         }
       ],
       [
@@ -112,13 +112,13 @@ export const useExtensions = () => {
           label: 'Move Down in Favorites',
           icon: 'i-lucide-arrow-down',
           kbds: ['meta', 'down'],
-          onSelect: () => console.log('Move down in favorites', command.label)
+          onSelect: () => console.log('Move down in favorites:', command.label)
         },
         {
           label: 'Remove from Favorites',
           icon: 'i-lucide-heart-off',
           kbds: ['meta', 'f'],
-          onSelect: () => console.log('Remove from favorites', command.label)
+          onSelect: () => console.log('Remove from favorites:', command.label)
         }
       ],
       [
@@ -126,7 +126,7 @@ export const useExtensions = () => {
           label: 'Copy Deeplink',
           icon: 'i-lucide-link',
           kbds: ['meta', 'c'],
-          onSelect: () => console.log('Copy deeplink', command.label)
+          onSelect: () => console.log('Copy deeplink:', command.label)
         }
       ],
       [
@@ -134,13 +134,13 @@ export const useExtensions = () => {
           label: 'Configure Command',
           icon: 'i-lucide-settings',
           kbds: ['meta', 'comma'],
-          onSelect: () => console.log('Configure command', command.label)
+          onSelect: () => console.log('Configure command:', command.label)
         },
         {
           label: 'Configure Extension',
           icon: 'i-lucide-sliders',
           kbds: ['meta', 'comma'],
-          onSelect: () => console.log('Configure extension', command.suffix)
+          onSelect: () => console.log('Configure extension:', command.suffix)
         }
       ],
       [
@@ -149,7 +149,7 @@ export const useExtensions = () => {
           icon: 'i-lucide-ban',
           color: 'error',
           kbds: ['meta', 'd'],
-          onSelect: () => console.log('Disable command', command.label)
+          onSelect: () => console.log('Disable command:', command.label)
         }
       ]
     ]

@@ -15,7 +15,7 @@ defineProps<Props>()
   >
     <UButton
       icon="i-simple-icons-raycast"
-      variant="ghost"
+      variant="soft"
       color="neutral"
       size="sm"
       class="text-dimmed"

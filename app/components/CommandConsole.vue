@@ -2,6 +2,7 @@
 const open = ref(true)
 
 const { getCommandGroups, settingsMenu, getActionsForCommand } = useExtensions()
+const toast = useToast()
 
 const groups = getCommandGroups()
 
@@ -15,6 +16,25 @@ const actionsDropdownItems = computed(() => {
 
 const handleHighlight = (payload: any) => {
   highlightedItem.value = payload
+}
+
+const showCommandToast = (command: any) => {
+  toast.add({
+    title: 'Command Executed',
+    description: `"${command.label}" from ${command.suffix}`,
+    icon: 'i-lucide-check-circle',
+    color: 'success'
+  })
+}
+
+const handleSelect = (option: any) => {
+  if (option.value) {
+    showCommandToast(option.value)
+  }
+}
+
+const handleDoubleClick = (item: any) => {
+  showCommandToast(item)
 }
 
 const handleRightClick = (event: MouseEvent) => {
@@ -53,9 +73,14 @@ defineShortcuts({
         :ui="commandPaletteUi" 
         :fuse="{ resultLimit: 100, fuseOptions: { includeMatches: true } }"
         @highlight="handleHighlight"
+        @select="handleSelect"
       >
         <template #item="{ item }">
-          <CommandItem :item @right-click="handleRightClick" />
+          <CommandItem 
+            :item 
+            @right-click="handleRightClick" 
+            @double-click="handleDoubleClick"
+          />
         </template>
 
         <template #close>
