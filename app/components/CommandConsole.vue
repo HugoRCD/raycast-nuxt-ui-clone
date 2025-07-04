@@ -3,13 +3,19 @@ const open = ref(true)
 
 const githubMeta = {
   suffix: 'Github',
-  icon: 'i-skill-icons:github-light',
+  icon: '/extensions/github.webp',
   type: 'Command'
 }
 
 const vscodeMeta = {
   suffix: 'VSCode',
-  icon: 'i-skill-icons:vscode-dark',
+  icon: '/extensions/vscode.webp',
+  type: 'Command'
+}
+
+const spotifyMeta = {
+  suffix: 'Spotify',
+  icon: '/extensions/spotify.webp',
   type: 'Command'
 }
 
@@ -55,6 +61,37 @@ const vscodeCommands = [
   }
 ]
 
+const spotifyCommands = [
+  {
+    label: 'Play/Pause',
+    ...spotifyMeta
+  },
+  {
+    label: 'Next',
+    ...spotifyMeta
+  },
+  {
+    label: 'Previous',
+    ...spotifyMeta
+  },
+  {
+    label: 'Shuffle',
+    ...spotifyMeta
+  },
+  {
+    label: 'Repeat',
+    ...spotifyMeta
+  },
+  {
+    label: 'Volume Up',
+    ...spotifyMeta
+  },
+  {
+    label: 'Volume Down',
+    ...spotifyMeta
+  }
+]
+
 const groups = [
   {
     id: 'favorites',
@@ -83,7 +120,11 @@ const groups = [
   {
     id: 'commands',
     label: 'Commands',
-    items: [...githubCommands, ...vscodeCommands]
+    items: [
+      ...githubCommands,
+      ...vscodeCommands,
+      ...spotifyCommands
+    ]
   }
 ]
 
@@ -147,7 +188,7 @@ const commandPaletteUi = {
           <div class="flex items-center justify-between w-full p-1">
             <div class="flex items-center gap-2.5">
               <div class="flex items-center gap-2.5">
-                <UIcon :name="item.icon!" class="size-5" />
+                <NuxtImg :src="item.icon!" class="size-5" />
                 <span>{{ item.label }}</span>
               </div>
               <span class="text-muted font-medium">
