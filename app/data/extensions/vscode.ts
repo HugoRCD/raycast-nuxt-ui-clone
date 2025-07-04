@@ -13,41 +13,31 @@ export const vscodeExtension: Extension = {
       label: 'Open File'
     },
     {
-      label: 'Open Settings',
-      actions: [
-        {
-          label: 'Open User Settings',
-          icon: 'i-lucide-user',
-          onSelect: () => console.log('Open user settings')
-        },
-        {
-          label: 'Open Workspace Settings',
-          icon: 'i-lucide-folder',
-          onSelect: () => console.log('Open workspace settings')
-        }
-      ]
+      label: 'Open Folder'
+    },
+    {
+      label: 'Open Recent'
+    },
+    {
+      label: 'New File'
+    },
+    {
+      label: 'New Window'
+    },
+    {
+      label: 'Open Settings'
     },
     {
       label: 'Open Command Palette'
     },
     {
-      label: 'Open Terminal',
-      actions: [
-        {
-          label: 'New Terminal',
-          icon: 'i-lucide-plus',
-          kbds: ['ctrl', 'shift', '`'],
-          onSelect: () => console.log('New terminal')
-        },
-        {
-          label: 'Split Terminal',
-          icon: 'i-lucide-split',
-          onSelect: () => console.log('Split terminal')
-        }
-      ]
+      label: 'Open Terminal'
     },
     {
-      label: 'Open Project'
+      label: 'Search Files'
+    },
+    {
+      label: 'Git Status'
     }
   ]
 } 

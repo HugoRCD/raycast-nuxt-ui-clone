@@ -9,6 +9,7 @@ export interface ActionItem {
   icon?: string
   color?: 'error' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'neutral'
   kbds?: string[]
+  type?: 'label' | 'separator'
   onSelect?: () => void
 }
 

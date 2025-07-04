@@ -10,47 +10,40 @@ export const spotifyExtension: Extension = {
   },
   commands: [
     {
-      label: 'Play/Pause',
-      actions: [
-        {
-          label: 'Add to Queue',
-          icon: 'i-lucide-list-plus',
-          onSelect: () => console.log('Add to queue')
-        },
-        {
-          label: 'Save to Library',
-          icon: 'i-lucide-heart',
-          color: 'success',
-          onSelect: () => console.log('Save to library')
-        }
-      ]
+      label: 'Play/Pause'
     },
     {
-      label: 'Next'
+      label: 'Next Track'
     },
     {
-      label: 'Previous'
+      label: 'Previous Track'
     },
     {
-      label: 'Shuffle'
+      label: 'Toggle Shuffle'
     },
     {
-      label: 'Repeat'
+      label: 'Toggle Repeat'
     },
     {
       label: 'Volume Up'
     },
     {
-      label: 'Volume Down',
-      actions: [
-        {
-          label: 'Mute',
-          icon: 'i-lucide-volume-x',
-          color: 'warning',
-          kbds: ['m'],
-          onSelect: () => console.log('Mute')
-        }
-      ]
+      label: 'Volume Down'
+    },
+    {
+      label: 'Mute'
+    },
+    {
+      label: 'Search Music'
+    },
+    {
+      label: 'Currently Playing'
+    },
+    {
+      label: 'Liked Songs'
+    },
+    {
+      label: 'Recently Played'
     }
   ]
 } 

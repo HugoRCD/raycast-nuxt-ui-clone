@@ -1,6 +1,8 @@
 import type { Command, CommandGroup, Extension, ActionItem } from '~/types/extensions'
 import { githubExtension, vscodeExtension, spotifyExtension } from '~/data/extensions'
 import { colorPickerExtension } from '~/data/extensions/color-picker'
+import { systemExtension } from '~/data/extensions/system'
+import { raycastNotesExtension } from '~/data/extensions/raycast-notes'
 import { settingsMenu } from '~/data/settings'
 
 export const useExtensions = () => {
@@ -8,7 +10,9 @@ export const useExtensions = () => {
     githubExtension,
     vscodeExtension,
     spotifyExtension,
-    colorPickerExtension
+    colorPickerExtension,
+    systemExtension,
+    raycastNotesExtension
   ])
 
   const transformExtensionCommands = (extension: Extension): Command[] => {
@@ -99,19 +103,65 @@ export const useExtensions = () => {
     return extensions.value.find(ext => ext.id === extensionId)
   }
 
-  const getDefaultActions = (): ActionItem[] => {
+  const getRaycastActions = (command: Command): ActionItem[][] => {
     return [
-      {
-        label: 'Copy Name',
-        icon: 'i-lucide-copy',
-        kbds: ['meta', 'c'],
-        onSelect: () => console.log('Copy name')
-      },
-      {
-        label: 'Copy Path',
-        icon: 'i-lucide-folder',
-        onSelect: () => console.log('Copy path')
-      }
+      [
+        {
+          label: 'Open Command',
+          icon: 'i-lucide-corner-up-right',
+          onSelect: () => console.log('Open command', command.label)
+        },
+        {
+          label: 'Reset Ranking',
+          icon: 'i-lucide-rotate-ccw',
+          onSelect: () => console.log('Reset ranking', command.label)
+        }
+      ],
+      [
+        {
+          label: 'Move Down in Favorites',
+          icon: 'i-lucide-arrow-down',
+          kbds: ['meta', 'down'],
+          onSelect: () => console.log('Move down in favorites', command.label)
+        },
+        {
+          label: 'Remove from Favorites',
+          icon: 'i-lucide-heart-off',
+          kbds: ['meta', 'f'],
+          onSelect: () => console.log('Remove from favorites', command.label)
+        }
+      ],
+      [
+        {
+          label: 'Copy Deeplink',
+          icon: 'i-lucide-link',
+          kbds: ['meta', 'c'],
+          onSelect: () => console.log('Copy deeplink', command.label)
+        }
+      ],
+      [
+        {
+          label: 'Configure Command',
+          icon: 'i-lucide-settings',
+          kbds: ['meta', 'comma'],
+          onSelect: () => console.log('Configure command', command.label)
+        },
+        {
+          label: 'Configure Extension',
+          icon: 'i-lucide-sliders',
+          kbds: ['meta', 'comma'],
+          onSelect: () => console.log('Configure extension', command.suffix)
+        }
+      ],
+      [
+        {
+          label: 'Disable Command',
+          icon: 'i-lucide-ban',
+          color: 'error',
+          kbds: ['meta', 'd'],
+          onSelect: () => console.log('Disable command', command.label)
+        }
+      ]
     ]
   }
 
@@ -120,36 +170,17 @@ export const useExtensions = () => {
       return [[]]
     }
 
-    const defaultActions = getDefaultActions()
-    const commandActions = command.actions || []
-    const contextActions = [
-      {
-        label: 'Add to Favorites',
-        icon: 'i-lucide-heart',
-        color: 'primary' as const,
-        onSelect: () => console.log('Add to favorites', command.label)
-      },
-      {
-        label: 'Remove from Favorites',
-        icon: 'i-lucide-heart-off',
-        color: 'error' as const,
-        onSelect: () => console.log('Remove from favorites', command.label)
-      }
+    const extensionHeader: ActionItem = {
+      label: command.label,
+      type: 'label'
+    }
+
+    const raycastActions = getRaycastActions(command)
+    
+    return [
+      [extensionHeader],
+      ...raycastActions
     ]
-
-    const groups: ActionItem[][] = []
-    
-    if (defaultActions.length > 0) {
-      groups.push(defaultActions)
-    }
-    
-    if (commandActions.length > 0) {
-      groups.push(commandActions)
-    }
-    
-    groups.push(contextActions)
-
-    return groups
   }
 
   return {
@@ -164,7 +195,7 @@ export const useExtensions = () => {
     addExtension,
     removeExtension,
     getExtension,
-    getDefaultActions,
+    getRaycastActions,
     getActionsForCommand
   }
 }
