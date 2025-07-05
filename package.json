@@ -32,7 +32,8 @@
     "@vueuse/core": "^13.3.0",
     "@vueuse/nuxt": "13.3.0",
     "nuxt": "^3.17.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-sonner": "^2.0.1"
   },
   "devDependencies": {
     "@hrcd/eslint-config": "^3.0.3",

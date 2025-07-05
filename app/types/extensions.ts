@@ -18,7 +18,7 @@ export interface Command {
   suffix: string
   icon: string
   type: string
-  action?: () => void
+  onSelect?: () => void
   shortcut?: string[]
   actions?: ActionItem[]
 }
@@ -39,7 +39,7 @@ export interface CommandGroup {
 export interface SettingsItem {
   label: string
   icon: string
-  action?: () => void
+  onSelect?: () => void
 }
 
 export interface SettingsGroup {

@@ -99,12 +99,18 @@ export const useExtensions = () => {
         {
           label: 'Open Command',
           icon: 'i-lucide-corner-up-right',
-          onSelect: () => console.log('Open command:', command.label)
+          onSelect: () => toast.success(`Opening "${command.label}"...`, {
+            description: 'Executing command in primary action',
+            duration: 2000
+          })
         },
         {
           label: 'Reset Ranking',
           icon: 'i-lucide-rotate-ccw',
-          onSelect: () => console.log('Reset ranking:', command.label)
+          onSelect: () => toast.success('Ranking reset', {
+            description: `"${command.label}" moved to default position`,
+            duration: 2500
+          })
         }
       ],
       [
@@ -112,13 +118,19 @@ export const useExtensions = () => {
           label: 'Move Down in Favorites',
           icon: 'i-lucide-arrow-down',
           kbds: ['meta', 'down'],
-          onSelect: () => console.log('Move down in favorites:', command.label)
+          onSelect: () => toast.info('Moved down in favorites', {
+            description: `"${command.label}" priority decreased`,
+            duration: 2000
+          })
         },
         {
           label: 'Remove from Favorites',
           icon: 'i-lucide-heart-off',
           kbds: ['meta', 'f'],
-          onSelect: () => console.log('Remove from favorites:', command.label)
+          onSelect: () => toast.warning('Removed from favorites', {
+            description: `"${command.label}" no longer in favorites`,
+            duration: 2500
+          })
         }
       ],
       [
@@ -126,7 +138,10 @@ export const useExtensions = () => {
           label: 'Copy Deeplink',
           icon: 'i-lucide-link',
           kbds: ['meta', 'c'],
-          onSelect: () => console.log('Copy deeplink:', command.label)
+          onSelect: () => toast.success('Deeplink copied!', {
+            description: `"${command.label}" link copied to clipboard`,
+            duration: 2500
+          })
         }
       ],
       [
@@ -134,13 +149,19 @@ export const useExtensions = () => {
           label: 'Configure Command',
           icon: 'i-lucide-settings',
           kbds: ['meta', 'comma'],
-          onSelect: () => console.log('Configure command:', command.label)
+          onSelect: () => toast.info('Opening command settings...', {
+            description: `Configure "${command.label}" preferences`,
+            duration: 2000
+          })
         },
         {
           label: 'Configure Extension',
           icon: 'i-lucide-sliders',
           kbds: ['meta', 'comma'],
-          onSelect: () => console.log('Configure extension:', command.suffix)
+          onSelect: () => toast.info('Opening extension settings...', {
+            description: `Configure ${command.suffix} extension`,
+            duration: 2000
+          })
         }
       ],
       [
@@ -149,7 +170,10 @@ export const useExtensions = () => {
           icon: 'i-lucide-ban',
           color: 'error',
           kbds: ['meta', 'd'],
-          onSelect: () => console.log('Disable command:', command.label)
+          onSelect: () => toast.error('Command disabled', {
+            description: `"${command.label}" has been disabled`,
+            duration: 3000
+          })
         }
       ]
     ]

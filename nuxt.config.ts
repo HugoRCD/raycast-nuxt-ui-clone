@@ -40,6 +40,15 @@ export default defineNuxtConfig({
     }
   },
 
+  imports: {
+    presets: [
+      {
+        from: 'vue-sonner',
+        imports: ['toast']
+      }
+    ]
+  },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/scripts',

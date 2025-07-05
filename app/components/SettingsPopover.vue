@@ -4,6 +4,12 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const handleSettingsSelect = (option: any) => {
+  if (option.value && option.value.action) {
+    option.value.onSelect()
+  }
+}
 </script>
 
 <template>
@@ -32,6 +38,7 @@ defineProps<Props>()
           itemLabel: 'text-xs',
           item: 'data-highlighted:not-data-disabled:before:bg-muted'
         }"
+        @select="handleSettingsSelect"
       />
     </template>
   </UPopover>

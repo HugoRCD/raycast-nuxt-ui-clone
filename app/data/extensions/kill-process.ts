@@ -10,7 +10,13 @@ export const killProcessExtension: Extension = {
   },
   commands: [
     {
-      label: 'Kill Process'
+      label: 'Kill Process',
+      onSelect: () => {
+        toast.warning('Terminating process...', {
+          description: 'Forcefully stopping selected process',
+          duration: 2500
+        })
+      }
     }
   ]
 } 
