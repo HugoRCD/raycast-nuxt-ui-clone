@@ -21,40 +21,37 @@ export const useExtensions = () => {
     return extensions.value.flatMap(extension => transformExtensionCommands(extension))
   }
 
-  const getRandomItems = <T>(array: T[], count: number): T[] => {
-    const shuffled = [...array].sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, count)
-  }
-
-  const generateRandomGroups = () => {
+  const getFavorites = (): Command[] => {
     const allCommands = getAllCommands()
-    const randomFavorites = getRandomItems(allCommands, 2)
+    const favoriteLabels = ['Recently Played', 'Create Branch']
     
-    const availableForSuggestions = allCommands.filter(cmd => 
-      !randomFavorites.some(fav => fav.label === cmd.label && fav.suffix === cmd.suffix)
+    return allCommands.filter(cmd => 
+      favoriteLabels.includes(cmd.label)
     )
-    const randomSuggestions = getRandomItems(availableForSuggestions, 1)
-    
-    return { randomFavorites, randomSuggestions }
   }
 
-  const getFavoritesGroup = (randomFavorites?: Command[]): CommandGroup => {
-    const favorites = randomFavorites || generateRandomGroups().randomFavorites
+  const getSuggestions = (): Command[] => {
+    const allCommands = getAllCommands()
+    const suggestionLabels = ['Search Files']
     
+    return allCommands.filter(cmd => 
+      suggestionLabels.includes(cmd.label)
+    )
+  }
+
+  const getFavoritesGroup = (): CommandGroup => {
     return {
       id: 'favorites',
       label: 'Favorites',
-      items: favorites
+      items: getFavorites()
     }
   }
 
-  const getSuggestionsGroup = (randomSuggestions?: Command[]): CommandGroup => {
-    const suggestions = randomSuggestions || generateRandomGroups().randomSuggestions
-    
+  const getSuggestionsGroup = (): CommandGroup => {
     return {
       id: 'suggestions',
       label: 'Suggestions',
-      items: suggestions
+      items: getSuggestions()
     }
   }
 
@@ -67,11 +64,9 @@ export const useExtensions = () => {
   }
 
   const getCommandGroups = (): CommandGroup[] => {
-    const { randomFavorites, randomSuggestions } = generateRandomGroups()
-    
     return [
-      getFavoritesGroup(randomFavorites),
-      getSuggestionsGroup(randomSuggestions),
+      getFavoritesGroup(),
+      getSuggestionsGroup(),
       getCommandsGroup()
     ]
   }
