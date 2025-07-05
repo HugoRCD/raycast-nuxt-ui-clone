@@ -23,7 +23,7 @@ export const useExtensions = () => {
 
   const getFavorites = (): Command[] => {
     const allCommands = getAllCommands()
-    const favoriteLabels = ['Recently Played', 'Create Branch']
+    const favoriteLabels = ['Recently Played', 'Create Branch', 'Pick Color from Screen']
     
     return allCommands.filter(cmd => 
       favoriteLabels.includes(cmd.label)
