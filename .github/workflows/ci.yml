@@ -14,15 +14,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          bun-version: latest
+          version: latest
+          run_install: false
 
       - name: 📦 Install dependencies
-        run: bun install
+        run: pnpm install
 
       - name: 💅 Lint code
-        run: bun run lint
+        run: pnpm run lint
 
       - name: 🧪 Run tests
-        run: bun run test
+        run: pnpm run test
