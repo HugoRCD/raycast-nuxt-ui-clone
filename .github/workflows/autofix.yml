@@ -12,15 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          bun-version: latest
+          version: latest
+          run_install: false
 
       - name: 📦 Install dependencies
-        run: bun install
+        run: pnpm install
 
       - name: 💅 Lint code
-        run: bun run lint:fix
+        run: pnpm run lint:fix
 
       - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
         with:
