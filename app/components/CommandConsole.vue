@@ -66,7 +66,8 @@ defineShortcuts({
         @highlight="handleHighlight"
       >
         <template #item="{ item }">
-          <div class="flex items-center justify-between w-full p-1" @contextmenu="handleRightClick">
+          <div class="relative flex items-center justify-between w-full p-1">
+            <div class="absolute inset-0 -m-1" @contextmenu="handleRightClick" />
             <div class="flex items-center gap-2.5">
               <div class="flex items-center gap-2.5">
                 <NuxtImg :src="item.icon!" class="size-5" />
