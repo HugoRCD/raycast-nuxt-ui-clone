@@ -7,11 +7,12 @@ useSeoMeta({
   description: 'A Raycast command palette clone built with Nuxt UI to demonstrate component customization capabilities',
   ogTitle: 'Raycast Nuxt UI Clone',
   ogDescription: 'A Raycast command palette clone built with Nuxt UI to demonstrate component customization capabilities',
-  ogImage: '/og.png',
+  ogImage: 'https://raycast-nuxt-ui.hrcd.fr/og.png',
+  ogUrl: 'https://raycast-nuxt-ui.hrcd.fr',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Raycast Nuxt UI Clone',
   twitterDescription: 'A Raycast command palette clone built with Nuxt UI to demonstrate component customization capabilities',
-  twitterImage: '/og.png'
+  twitterImage: 'https://raycast-nuxt-ui.hrcd.fr/og.png'
 })
 </script>
 
