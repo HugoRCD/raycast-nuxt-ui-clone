@@ -28,7 +28,7 @@
     "@nuxt/image": "1.11.0",
     "@nuxt/scripts": "0.11.10",
     "@nuxt/ui": "https://pkg.pr.new/@nuxt/ui@4457",
-    "@unhead/vue": "^2.0.12",
+    "@unhead/vue": "^2.0.13",
     "@vueuse/core": "^13.6.0",
     "@vueuse/nuxt": "13.6.0",
     "nuxt": "^3.18.0",
@@ -40,7 +40,7 @@
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.0",
     "eslint": "^9.32.0",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
   "publishConfig": {
