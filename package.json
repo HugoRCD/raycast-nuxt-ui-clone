@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@nuxt/image": "1.11.0",
-    "@nuxt/scripts": "0.11.10",
+    "@nuxt/scripts": "0.11.13",
     "@nuxt/ui": "https://pkg.pr.new/@nuxt/ui@4457",
     "@unhead/vue": "^2.0.14",
     "@vueuse/core": "^13.7.0",
@@ -39,7 +39,7 @@
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
