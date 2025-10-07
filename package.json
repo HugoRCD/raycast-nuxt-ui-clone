@@ -26,21 +26,21 @@
   },
   "dependencies": {
     "@nuxt/image": "1.11.0",
-    "@nuxt/scripts": "0.11.13",
+    "@nuxt/scripts": "0.12.1",
     "@nuxt/ui": "https://pkg.pr.new/@nuxt/ui@4457",
     "@unhead/vue": "^2.0.17",
     "@vueuse/core": "^13.9.0",
     "@vueuse/nuxt": "13.9.0",
-    "nuxt": "^3.19.2",
+    "nuxt": "^3.19.3",
     "vue": "latest",
-    "vue-sonner": "^2.0.8"
+    "vue-sonner": "^2.0.9"
   },
   "devDependencies": {
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.2",
-    "eslint": "^9.36.0",
-    "typescript": "^5.9.2",
+    "eslint": "^9.37.0",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
   "publishConfig": {
