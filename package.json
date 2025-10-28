@@ -39,7 +39,7 @@
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.2",
-    "eslint": "^9.37.0",
+    "eslint": "^9.38.0",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
