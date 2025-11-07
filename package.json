@@ -31,7 +31,7 @@
     "@unhead/vue": "^2.0.19",
     "@vueuse/core": "^13.9.0",
     "@vueuse/nuxt": "13.9.0",
-    "nuxt": "^3.19.3",
+    "nuxt": "^3.20.1",
     "vue": "latest",
     "vue-sonner": "^2.0.9"
   },
@@ -39,7 +39,7 @@
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.2",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.1",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
