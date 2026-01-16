@@ -10,13 +10,13 @@ dependencies:
     version: 1.11.0
   '@nuxt/scripts':
     specifier: 0.13.2
-    version: 0.13.2(@unhead/vue@2.1.1)(typescript@5.9.3)(vue@3.5.17)
+    version: 0.13.2(@unhead/vue@2.1.2)(typescript@5.9.3)(vue@3.5.17)
   '@nuxt/ui':
     specifier: https://pkg.pr.new/@nuxt/ui@4457
     version: '@pkg.pr.new/@nuxt/ui@4457(embla-carousel@8.6.0)(typescript@5.9.3)(vite@7.2.7)(vue@3.5.17)'
   '@unhead/vue':
-    specifier: ^2.1.1
-    version: 2.1.1(vue@3.5.17)
+    specifier: ^2.1.2
+    version: 2.1.2(vue@3.5.17)
   '@vueuse/core':
     specifier: ^13.9.0
     version: 13.9.0(vue@3.5.17)
@@ -1717,7 +1717,7 @@ packages:
     dependencies:
       '@nuxt/devalue': 2.0.2
       '@nuxt/kit': 3.20.2
-      '@unhead/vue': 2.1.1(vue@3.5.25)
+      '@unhead/vue': 2.1.2(vue@3.5.25)
       '@vue/shared': 3.5.25
       consola: 3.4.2
       defu: 6.1.4
@@ -1798,7 +1798,7 @@ packages:
       std-env: 3.10.0
     dev: false
 
-  /@nuxt/scripts@0.13.2(@unhead/vue@2.1.1)(typescript@5.9.3)(vue@3.5.17):
+  /@nuxt/scripts@0.13.2(@unhead/vue@2.1.2)(typescript@5.9.3)(vue@3.5.17):
     resolution: {integrity: sha512-aZYm60B08RoRnFVu+RiyN8UQ/xB3IWs05sh1pQ35CJ+zbWT725SZTgMI12kEXzqxAAHpiuv1ctBpLlFg+4jiew==}
     peerDependencies:
       '@googlemaps/markerclusterer': ^2.6.2
@@ -1823,7 +1823,7 @@ packages:
         optional: true
     dependencies:
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
-      '@unhead/vue': 2.1.1(vue@3.5.17)
+      '@unhead/vue': 2.1.2(vue@3.5.17)
       '@vueuse/core': 14.1.0(vue@3.5.17)
       consola: 3.4.2
       defu: 6.1.4
@@ -3275,23 +3275,23 @@ packages:
       eslint-visitor-keys: 4.2.1
     dev: true
 
-  /@unhead/vue@2.1.1(vue@3.5.17):
-    resolution: {integrity: sha512-WYa8ORhfv7lWDSoNpkMKhbW1Dbsux/3HqMcVkZS3xZ2/c/VrcChLj+IMadpCd1WNR0srITfRJhBYZ1i9hON5Qw==}
+  /@unhead/vue@2.1.2(vue@3.5.17):
+    resolution: {integrity: sha512-w5yxH/fkkLWAFAOnMSIbvAikNHYn6pgC7zGF/BasXf+K3CO1cYIPFehYAk5jpcsbiNPMc3goyyw1prGLoyD14g==}
     peerDependencies:
       vue: '>=3.5.18'
     dependencies:
-      hookable: 5.5.3
-      unhead: 2.1.1
+      hookable: 6.0.1
+      unhead: 2.1.2
       vue: 3.5.17(typescript@5.9.3)
     dev: false
 
-  /@unhead/vue@2.1.1(vue@3.5.25):
-    resolution: {integrity: sha512-WYa8ORhfv7lWDSoNpkMKhbW1Dbsux/3HqMcVkZS3xZ2/c/VrcChLj+IMadpCd1WNR0srITfRJhBYZ1i9hON5Qw==}
+  /@unhead/vue@2.1.2(vue@3.5.25):
+    resolution: {integrity: sha512-w5yxH/fkkLWAFAOnMSIbvAikNHYn6pgC7zGF/BasXf+K3CO1cYIPFehYAk5jpcsbiNPMc3goyyw1prGLoyD14g==}
     peerDependencies:
       vue: '>=3.5.18'
     dependencies:
-      hookable: 5.5.3
-      unhead: 2.1.1
+      hookable: 6.0.1
+      unhead: 2.1.2
       vue: 3.5.25(typescript@5.9.3)
     dev: false
 
@@ -6115,6 +6115,10 @@ packages:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
     dev: false
 
+  /hookable@6.0.1:
+    resolution: {integrity: sha512-uKGyY8BuzN/a5gvzvA+3FVWo0+wUjgtfSdnmjtrOVwQCZPHpHDH2WRO3VZSOeluYrHoDCiXFffZXs8Dj1ULWtw==}
+    dev: false
+
   /hosted-git-info@8.1.0:
     resolution: {integrity: sha512-Rw/B2DNQaPBICNXEm8balFz9a6WpZrkCGpcWFpy7nCj+NyhSdqXipmfvtmWt9xGfp0wZnBxB+iVpLmQMYt47Tw==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -7357,7 +7361,7 @@ packages:
       '@nuxt/schema': 3.20.2
       '@nuxt/telemetry': 2.6.6
       '@nuxt/vite-builder': 3.20.2(eslint@9.39.2)(nuxt@3.20.2)(typescript@5.9.3)(vue@3.5.25)
-      '@unhead/vue': 2.1.1(vue@3.5.25)
+      '@unhead/vue': 2.1.2(vue@3.5.25)
       '@vue/shared': 3.5.25
       c12: 3.3.2(magicast@0.5.1)
       chokidar: 5.0.0
@@ -9189,10 +9193,10 @@ packages:
       pathe: 2.0.3
     dev: false
 
-  /unhead@2.1.1:
-    resolution: {integrity: sha512-NOt8n2KybAOxSLfNXegAVai4SGU8bPKqWnqCzNAvnRH2i8mW+0bbFjN/L75LBgCSTiOjJSpANe5w2V34Grr7Cw==}
+  /unhead@2.1.2:
+    resolution: {integrity: sha512-vSihrxyb+zsEUfEbraZBCjdE0p/WSoc2NGDrpwwSNAwuPxhYK1nH3eegf02IENLpn1sUhL8IoO84JWmRQ6tILA==}
     dependencies:
-      hookable: 5.5.3
+      hookable: 6.0.1
     dev: false
 
   /unicode-properties@1.4.1:
@@ -10321,7 +10325,7 @@ packages:
       '@tailwindcss/postcss': 4.1.11
       '@tailwindcss/vite': 4.1.11(vite@7.2.7)
       '@tanstack/vue-table': 8.21.3(vue@3.5.17)
-      '@unhead/vue': 2.1.1(vue@3.5.17)
+      '@unhead/vue': 2.1.2(vue@3.5.17)
       '@vueuse/core': 13.9.0(vue@3.5.17)
       '@vueuse/integrations': 13.5.0(fuse.js@7.1.0)(vue@3.5.17)
       colortranslator: 5.0.0
