@@ -25,13 +25,13 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@nuxt/image": "1.11.0",
+    "@nuxt/image": "1.11.2",
     "@nuxt/scripts": "0.13.4",
     "@nuxt/ui": "https://pkg.pr.new/@nuxt/ui@4457",
-    "@unhead/vue": "^2.1.13",
+    "@unhead/vue": "^2.1.17",
     "@vueuse/core": "^13.9.0",
     "@vueuse/nuxt": "13.9.0",
-    "nuxt": "^3.21.2",
+    "nuxt": "^3.21.11",
     "vue": "latest",
     "vue-sonner": "^2.0.9"
   },
@@ -39,9 +39,9 @@
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.2.0",
     "automd": "^0.4.3",
-    "eslint": "^9.39.4",
+    "eslint": "^9.39.5",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   },
   "publishConfig": {
     "access": "public"
